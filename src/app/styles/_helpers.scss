@@ -1,0 +1,74 @@
+// Helper classes.
+
+.full-viewport-height {
+    height: 100vh;
+}
+
+.no-margin {
+    // sass-lint:disable no-important -- Helper class.
+    margin: 0 !important;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.width-auto {
+    width: auto;
+}
+
+// Margin.
+$margin-sizes: (
+    0: 0,
+    "1\\/2": $global-margin / 2, // Half (f.e. mt-1/2)
+    "1\\/4": $global-margin / 4, // Quarter (f.e. mt-1/4)
+    1: $global-margin,
+    2: $global-margin * 2,
+    3: $global-margin * 3,
+    4: $global-margin * 4
+);
+
+@each $name, $size in $margin-sizes {
+    .mt-#{$name} { margin-top: $size; }
+    .mr-#{$name} { margin-right: $size; }
+    .mb-#{$name} { margin-bottom: $size; }
+    .ml-#{$name} { margin-left: $size; }
+
+    .mx-#{$name} {
+        margin-left: $size;
+        margin-right: $size;
+    }
+
+    .my-#{$name} {
+        margin-top: $size;
+        margin-bottom: $size;
+    }
+}
+
+// Padding.
+$padding-sizes: (
+    0: 0,
+    "1\\/2": $global-padding / 2, // Half (f.e. pt-1/2)
+    "1\\/4": $global-padding / 4, // Quarter (f.e. pt-1/4)
+    1: $global-padding,
+    2: $global-padding * 2,
+    3: $global-padding * 3,
+    4: $global-padding * 4
+);
+
+@each $name, $size in $padding-sizes {
+    .pt-#{$name} { padding-top: $size; }
+    .pr-#{$name} { padding-right: $size; }
+    .pb-#{$name} { padding-bottom: $size; }
+    .pl-#{$name} { padding-left: $size; }
+
+    .px-#{$name} {
+        padding-left: $size;
+        padding-right: $size;
+    }
+
+    .py-#{$name} {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+}

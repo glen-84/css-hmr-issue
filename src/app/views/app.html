@@ -1,0 +1,70 @@
+<template>
+    <div id="topBarMain" class="top-bar top-bar-main">
+        <div class="top-bar-title">
+            <a href="/">
+                <!-- removed -->
+            </a>
+        </div>
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="hide-for-large">
+                    <button type="button" class="button" data-toggle="offCanvasLeft">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li class="show-for-large">
+                    <button type="button" id="toggleOffCanvasLeft" class="button">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li>
+                    <button class="button" data-toggle="userMenu">
+                        <span>${activeUser.username}</span>
+                        <img
+                            src.bind="activeUser.profile.avatarImagePath"
+                            alt="Avatar"
+                            class="user-avatar"
+                            width="30"
+                            height="30" />
+                    </button>
+                    <div
+                        id="userMenu"
+                        class="dropdown-pane user-menu"
+                        data-dropdown
+                        data-auto-focus="true"
+                        data-close-on-click="true">
+                        <ul class="vertical dropdown menu menu-hover" data-dropdown-menu>
+                            <li>
+                                <a click.delegate="logout()">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div
+        id="offCanvasLeft"
+        class="off-canvas position-left reveal-for-large off-canvas-left"
+        data-off-canvas
+        data-content-overlay="false">
+        <nav>
+            <ul class="vertical menu" data-accordion-menu data-slide-speed="100">
+                <li>
+                    <a route-href="route: app.index">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+        <router-view id="routerViewMain"></router-view>
+    </div>
+</template>

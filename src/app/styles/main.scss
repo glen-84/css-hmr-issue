@@ -1,0 +1,553 @@
+// Settings.
+
+@import "settings";
+
+// Foundation.
+
+@import "~foundation-sites/scss/foundation";
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-range-input;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-xy-grid-classes;
+
+// Font Awesome.
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+// Toastr.
+@import "~toastr/toastr";
+
+// Elements.
+
+button {
+    font-family: $body-font-family;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 1px rgba($black, 0.6);
+}
+
+a {
+    &.disabled {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
+
+// Custom elements.
+
+gg-current-image {
+    .dropdown-pane {
+        min-width: 200px;
+        width: auto;
+
+        img {
+            max-width: 600px;
+        }
+    }
+}
+
+gg-filters {
+    @include callout(map-get($foundation-palette, secondary));
+    display: block;
+
+    .filters-toggle {
+        cursor: pointer;
+        line-height: 1.4;
+        text-align: left;
+        width: 100%;
+
+        * {
+            vertical-align: middle;
+        }
+    }
+
+    .filters-body {
+        margin-top: 1rem;
+    }
+
+    .filters-presets {
+        > span {
+            font-size: map-get($button-sizes, default);
+            font-weight: bold;
+            line-height: 1;
+            padding: $button-padding;
+            padding-left: 0;
+        }
+
+        .button {
+            border: 0;
+            margin: 0;
+        }
+    }
+
+    .row:last-child .button-group {
+        margin-bottom: 0;
+    }
+}
+
+gg-fine-uploader {
+    display: block;
+    margin-bottom: $form-spacing;
+}
+
+gg-form-actions {
+    display: block;
+
+    .loader {
+        margin-left: 5px;
+    }
+}
+
+// -- Pagination element.
+
+gg-pagination {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+@import "components";
+@import "helpers";
+
+// Layout.
+
+.top-bar-main {
+    background-color: $top-bar-main-background;
+    color: $white;
+    height: 52px;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    > .top-bar-title {
+        padding-left: 5px;
+    }
+
+    > div > ul {
+        background-color: $top-bar-main-background;
+    }
+
+    .user-menu {
+        padding: 0;
+
+        ul {
+            background-color: $white;
+        }
+    }
+}
+
+.user-avatar {
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.off-canvas-left {
+    background: $off-canvas-menu-background;
+    border-top: 1px solid rgba($white, 0.2);
+    height: calc(100% - 52px);
+    top: 52px;
+
+    nav ul {
+        a {
+            color: rgba($white, 0.75);
+            padding: 1rem;
+            transition: background 0.15s linear, color 0.15s linear;
+        }
+
+        ul {
+            background: rgba($black, 0.15);
+        }
+
+        ul a {
+            padding-left: 37px;
+        }
+
+        a > i {
+            margin-right: 0.6rem;
+            width: 16px;
+        }
+
+        ul.is-active {
+            border-bottom: 1px solid rgba($white, 0.1);
+        }
+
+        ul > li.is-active a {
+            background-color: rgba($black, 0.2);
+            color: $white;
+        }
+
+        li:not(.is-active) > a:hover {
+            background-color: rgba($black, 0.1);
+            color: $white;
+        }
+    }
+}
+
+.off-canvas-content {
+    margin-top: 52px;
+    transition: margin-left 0.5s ease;
+}
+
+.loading-overlay {
+    position: relative;
+}
+
+.loading-overlay::after {
+    background-color: rgba($white, 0.5);
+    box-shadow: 0 0 8px 4px rgba($white, 0.5);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.5s ease;
+}
+
+.loading-overlay-off::after {
+    content: "";
+    background-color: rgba($white, 0);
+}
+
+// Data tables.
+
+.checkbox-cell {
+    text-align: center;
+    width: 40px;
+
+    input {
+        margin: 0;
+        vertical-align: middle;
+    }
+}
+
+.toggle-cell {
+    text-align: center;
+    width: 35px;
+
+    > button {
+        cursor: pointer;
+        vertical-align: middle;
+    }
+}
+
+.site-section-icon {
+    background-color: mix($black, $table-striped-background, 10%);
+    border-radius: 50%;
+    color: mix($black, $table-striped-background, 80%);
+    display: inline-block;
+    font-size: rem-calc(11);
+    min-width: 22px;
+    padding: 6px;
+    text-align: center;
+}
+
+.action-menu-column {
+    width: 52px;
+}
+
+.action-menu-toggle,
+button.toggle {
+    margin: 0;
+    color: $black;
+    background: $white;
+    box-shadow: 0 1px 3px rgba($black, 0.1);
+    border: 1px solid rgba($black, 0.2);
+    border-radius: 4px;
+    padding: 8px 10px;
+    transition: border-color ease-in-out 0.25s;
+
+    &:focus,
+    &:hover {
+        background: $white;
+        color: $black;
+    }
+
+    &:hover {
+        border-color: rgba($black, 0.5);
+    }
+}
+
+button.toggle {
+    &.is-active {
+        background-color: mix($white, map-get($foundation-palette, primary), 50%);
+    }
+
+    > i {
+        line-height: 0.9;
+    }
+}
+
+.action-menu-toggle + .dropdown-pane {
+    padding: 0;
+}
+
+.expanded > td {
+    background: linear-gradient(
+        to bottom,
+        mix($black, $table-striped-background, 10%) 0%,
+        $table-striped-background 100%
+    );
+    box-shadow: inset 0 -18px 20px -20px mix($black, $table-striped-background, 50%);
+    padding-bottom: 0;
+
+    h5 {
+        font-weight: bold;
+    }
+
+    h5 + .dropdown-pane {
+        padding: 0;
+    }
+}
+
+.fa.alert {
+    color: mix($black, map-get($foundation-palette, alert), 15%);
+}
+
+.fa.success {
+    color: mix($black, map-get($foundation-palette, success), 15%);
+}
+
+th {
+    > .sort-link {
+        color: inherit;
+        display: block;
+        margin: rem-calc(-8) rem-calc(-10) rem-calc(-10);
+        padding: rem-calc(8) rem-calc(10) rem-calc(10);
+
+        &::after {
+            color: map-get($foundation-palette, primary);
+            font-family: FontAwesome;
+            margin-left: 2px;
+        }
+
+        &.asc,
+        &.desc {
+            white-space: nowrap;
+        }
+
+        &.asc::after {
+            content: "\f0d8";
+        }
+
+        &.desc::after {
+            content: "\f0d7";
+        }
+    }
+}
+
+tr.highlight {
+    background-color: $highlight-background-color;
+}
+
+tr.highlight:nth-child(even) {
+    background-color: mix($black, $highlight-background-color, 5%);
+}
+
+@each $name, $color in $foundation-palette {
+    tr.#{$name} {
+        //background-color: $color;
+        @include callout-style($color);
+    }
+}
+
+.callout.highlight {
+    background-color: $highlight-background-color;
+}
+
+td {
+    .button,
+    .input-group,
+    .select2,
+    .switch,
+    input[type="checkbox"],
+    input[type="number"],
+    select {
+        // sass-lint:disable no-important -- Overriding another important.
+        margin-bottom: 0 !important;
+    }
+
+    .form-error {
+        margin-top: $form-spacing;
+    }
+
+    > gg-current-image {
+        background-color: mix($black, $table-striped-background, 10%);
+        border-radius: 50%;
+        color: mix($black, $table-striped-background, 80%);
+        padding: 4px 6px;
+    }
+}
+
+// Forms.
+
+.form-group {
+    position: relative;
+
+    > .form-group-info {
+        position: absolute;
+        top: 7px;
+        right: 6px;
+    }
+
+    > input[type="checkbox"] {
+        margin-top: 8px;
+    }
+
+    gg-char-count {
+        color: mix($black, $dark-gray, 25%);
+        font-size: rem-calc(12);
+    }
+
+    label > gg-char-count {
+        margin-left: 10px;
+    }
+
+    label > .optional {
+        color: $text-optional-color;
+        font-size: 11px;
+        padding-left: 5px;
+    }
+}
+
+// Foundation overrides.
+
+.button.has-tip {
+    cursor: pointer;
+    font-weight: initial;
+}
+
+.callout {
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.dropdown-pane {
+    box-shadow: 0 0 1px rgba($black, 0.6);
+
+    > .dropdown.menu > li > button {
+        color: $anchor-color;
+        cursor: pointer;
+        display: flex;
+        padding: $menu-items-padding;
+        width: 100%;
+    }
+}
+
+.form-error + .form-error {
+    margin-top: -16px;
+}
+
+label.middle {
+    padding: (rem-calc(10) / 2) 0;
+}
+
+.tooltip-alt {
+    max-width: none;
+    white-space: pre;
+}
+
+// See https://github.com/zurb/foundation-sites/issues/9325
+.button-group {
+    flex-wrap: wrap;
+}
+
+.menu-hover > li:hover {
+    background-color: $light-gray;
+}
+
+// Select2.
+
+.select2-full-width-selections {
+    li {
+        width: 100%;
+    }
+}
+
+// Loader (see https://projects.lukehaas.me/css-loaders/).
+
+.loader,
+.loader::after {
+    border-radius: 50%;
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.loader {
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 0.15em solid rgba($black, 0.2);
+    border-right: 0.15em solid rgba($black, 0.2);
+    border-bottom: 0.15em solid rgba($black, 0.2);
+    border-left: 0.15em solid $black;
+    transform: translateZ(0);
+    animation: load8 1.1s infinite linear;
+}
+
+@keyframes load8 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Login.
+
+.login-card {
+    margin-top: 50px;
+    max-width: 400px;
+
+    .callout {
+        padding: 0.75rem;
+    }
+
+    .button-group {
+        margin-bottom: 0;
+    }
+}

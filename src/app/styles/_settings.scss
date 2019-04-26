@@ -1,0 +1,84 @@
+// Foundation settings.
+
+@import "~foundation-sites/scss/util/util";
+
+// -- Global.
+
+$global-font-size: 82%;
+$black: #0a0a0a;
+$white: #fefefe;
+$lighter-gray: #f5f5f5;
+$body-background: $lighter-gray;
+$body-font-family: "Open Sans", sans-serif;
+
+$foundation-palette: (
+    primary: #26a69a,
+    secondary: #37474f,
+    tertiary: #ccc,
+    success: #3adb76,
+    warning: #ffae00,
+    alert: #cc4b37
+);
+
+$anchor-color: mix($black, map-get($foundation-palette, primary), 25%);
+$text-optional-color: #21a01a;
+
+// -- Base typography.
+
+$header-styles: (
+    small: (
+        "h1": ("font-size": 24),
+        "h2": ("font-size": 20),
+        "h3": ("font-size": 19),
+        "h4": ("font-size": 18),
+        "h5": ("font-size": 17),
+        "h6": ("font-size": 16)
+    ),
+    medium: (
+        "h1": ("font-size": 32),
+        "h2": ("font-size": 24),
+        "h3": ("font-size": 18),
+        "h4": ("font-size": 15),
+        "h5": ("font-size": 13),
+        "h6": ("font-size": 10)
+    )
+);
+
+$small-font-size: 85%;
+
+// -- Accordion menu.
+
+$accordionmenu-arrow-color: rgba(255, 255, 255, 0.75);
+$accordionmenu-arrow-size: 5px;
+
+// -- Card.
+
+$card-shadow: 0 0 1px rgba($black, 0.5);
+
+// -- Dropdown.
+
+$dropdown-background: $white;
+$dropdown-border: 1px solid $lighter-gray;
+$dropdown-width: 200px;
+
+// -- Forms.
+
+$input-font-size: rem-calc(13);
+
+// -- Pagination.
+
+$pagination-item-background-hover: mix($white, map-get($foundation-palette, primary), 50%);
+
+// -- Tooltip.
+
+$has-tip-border-bottom: none;
+
+// -- Top bar.
+
+$topbar-unstack-breakpoint: small;
+
+// Custom settings.
+
+$highlight-background-color: #ffa;
+$off-canvas-menu-background: #263238;
+$top-bar-main-background: #37474f;

@@ -1,0 +1,106 @@
+// This file should only be used for styling components from installed packages.
+
+// sass-lint:disable class-name-format -- Overriding styles set by external code.
+// sass-lint:disable no-important -- Overriding styles set by external code.
+
+// Aurelia dialog.
+
+ux-dialog-overlay.active {
+    background-color: rgba($black, 0.5);
+    transition: background-color 0.25s ease-in-out;
+}
+
+ux-dialog {
+    border-radius: 0 !important;
+}
+
+.dialog-header-content > .loader {
+    float: right;
+    width: 2em;
+    height: 2em;
+}
+
+.ux-dialog-open {
+    overflow: initial !important;
+}
+
+// CKEditor.
+
+.cke {
+    margin: 0 0 $form-spacing !important;
+}
+
+// JQuery UI.
+
+.ui-datepicker {
+    select {
+        height: initial;
+        margin: 0;
+        padding: rem-calc(5);
+    }
+}
+
+// Pace progressbar.
+
+.pace {
+    pointer-events: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: map-get($foundation-palette, primary);
+    border-bottom: 1px solid rgba($white, 0.5);
+    position: fixed;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 4px;
+    z-index: 2000;
+}
+
+// Select2.
+
+.select2 {
+    margin-bottom: $form-spacing !important;
+}
+
+.select2-container--default {
+    .select2-selection--single,
+    .select2-selection--multiple {
+        border-radius: 0 !important;
+        min-height: 2.62957rem !important;
+    }
+
+    .select2-selection--single {
+        padding: 0.60976rem;
+
+        .select2-selection__arrow {
+            height: 100% !important;
+        }
+
+        .select2-selection__rendered {
+            line-height: 1.3 !important;
+            padding-left: 0 !important;
+        }
+    }
+
+    .select2-selection--multiple {
+        font-size: 13px;
+        line-height: 1.3 !important;
+    }
+}
+
+.select2-search--dropdown .select2-search__field {
+    margin: 0;
+}
+
+.select2-search--inline > input {
+    height: auto !important;
+    margin-bottom: 0 !important;
+    margin-top: 2px !important;
+    padding: 4px 0 !important;
+}
